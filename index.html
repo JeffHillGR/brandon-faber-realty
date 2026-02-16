@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Brandon Faber | West Michigan REALTOR® | Grand Rapids Area Real Estate</title>
+  <meta name="title" content="Brandon Faber | West Michigan REALTOR® | Grand Rapids Area Real Estate">
+  <meta name="description" content="Brandon Faber - West Michigan REALTOR® helping buyers, sellers & investors in Grand Rapids, Ada, Rockford, Forest Hills & surrounding areas.">
+  <meta name="author" content="Brandon Faber">
+  <meta name="robots" content="index, follow">
+
+  <!-- Geographic Tags for Local SEO -->
+  <meta name="geo.region" content="US-MI">
+  <meta name="geo.placename" content="Ada, Michigan">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Brandon Faber | West Michigan REALTOR® | Grand Rapids Area Real Estate">
+  <meta property="og:description" content="Brandon Faber - West Michigan REALTOR® serving Grand Rapids, Ada, Rockford, Forest Hills & surrounding areas.">
+  <meta property="og:image" content="images/Brandon-faber-headshot.jpg">
+  <meta property="og:locale" content="en_US">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#7aaa6d',
+            accent: '#5a8f4e',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .sidebar-gradient {
+      background: linear-gradient(180deg, #8fbc8b 0%, #6b9e68 100%);
+    }
+    .banner-image {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .banner-image.active {
+      opacity: 1;
+    }
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .line-clamp-6 {
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    /* Blog content list styling */
+    .prose ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+    .prose ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+    .prose li {
+      margin: 0.25rem 0;
+    }
+    /* Blog content image styling */
+    .prose img {
+      max-width: 100%;
+      height: auto;
+      margin: 12px 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .prose img.float-left {
+      float: left;
+      margin: 4px 20px 12px 0;
+      max-width: 45%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .prose img.float-right {
+      float: right;
+      margin: 4px 0 12px 20px;
+      max-width: 45%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .prose img.small {
+      max-width: 180px;
+    }
+    .prose img.medium {
+      max-width: 300px;
+    }
+    .prose p {
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+    /* Hide empty paragraphs that only contain line breaks */
+    .prose p:has(> br:only-child) {
+      display: none;
+    }
+    .prose br {
+      display: none;
+    }
+    .prose::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    /* Clear floats for signature/closing paragraphs */
+    .prose p:nth-last-of-type(1),
+    .prose p:nth-last-of-type(2),
+    .prose p:nth-last-of-type(3) {
+      clear: both;
+    }
+    /* Responsive: stack images on mobile */
+    @media (max-width: 640px) {
+      .prose img.float-left,
+      .prose img.float-right {
+        float: none;
+        max-width: 100%;
+        margin: 12px 0;
+      }
+    }
+    /* Cascade animation for tiles */
+    @keyframes cascadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .cascade-tile {
+      opacity: 0;
+      animation: cascadeIn 0.5s ease-out forwards;
+    }
+    .cascade-tile:nth-child(1) { animation-delay: 0.1s; }
+    .cascade-tile:nth-child(2) { animation-delay: 0.2s; }
+    .cascade-tile:nth-child(3) { animation-delay: 0.3s; }
+    .cascade-tile:nth-child(4) { animation-delay: 0.4s; }
+
+    /* Featured listing fade in */
+    @keyframes fadeSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    #featured-listing {
+      opacity: 0;
+    }
+    #featured-listing.animate-fade-slide {
+      animation: fadeSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex flex-col lg:flex-row min-h-screen">
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar-gradient text-white lg:w-80 lg:flex-shrink-0">
+      <!-- Mobile: Compact header only -->
+      <div class="lg:hidden p-4">
+        <div class="flex items-center gap-2">
+          <!-- Hamburger menu button -->
+          <button onclick="toggleMobileMenu()" class="text-white p-1">
+            <i id="menu-icon" class="fas fa-bars text-xl"></i>
+          </button>
+          <img src="images/JH Realty logo.jpg" alt="JH Realty" class="w-20 rounded">
+          <img src="images/Brandon-faber-headshot.jpg" alt="Brandon Faber" class="w-10 h-10 rounded-full object-cover border-2 border-white">
+          <div class="flex-1">
+            <h1 class="text-base font-bold">Brandon Faber</h1>
+            <p class="text-white/90 text-xs">Licensed REALTOR®</p>
+          </div>
+        </div>
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="hidden mt-3 pt-3 border-t border-white/20">
+          <nav class="space-y-1">
+            <a href="#insights" onclick="closeMobileMenu()" class="flex items-center py-2 px-3 text-white/90 hover:bg-white/10 rounded text-sm">
+              <i class="fas fa-lightbulb mr-2 w-5 text-center text-xs"></i>Market Insights
+            </a>
+            <a href="#buy-first" onclick="closeMobileMenu()" class="flex items-center py-2 px-3 text-white/90 hover:bg-white/10 rounded text-sm">
+              <img src="https://static.wixstatic.com/media/5d0d57_9876259c18f04938a620a0e3ff2be5e5~mv2.png/v1/fill/w_202,h_208,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_5590_PNG.png" alt="" class="w-5 h-auto mr-2">Buy First, Sell Later
+            </a>
+            <a href="mailto:brandon@wearejhr.com?subject=Getting%20In%20Touch" class="flex items-center py-2 px-3 text-white/90 hover:bg-white/10 rounded text-sm">
+              <i class="fas fa-paper-plane mr-2 w-5 text-center text-xs"></i>Get in Touch
+            </a>
+            <a href="#listings" onclick="closeMobileMenu()" class="flex items-center py-2 px-3 text-white/90 hover:bg-white/10 rounded text-sm">
+              <i class="fas fa-house-chimney mr-2 w-5 text-center text-xs"></i>Search for Homes
+            </a>
+            <a href="#testimonials" onclick="closeMobileMenu()" class="flex items-center py-2 px-3 text-white/90 hover:bg-white/10 rounded text-sm">
+              <i class="fas fa-comments mr-2 w-5 text-center text-xs"></i>Testimonials
+            </a>
+            <a href="#recently-sold" onclick="closeMobileMenu()" class="flex items-center py-2 px-3 text-white/90 hover:bg-white/10 rounded text-sm">
+              <i class="fas fa-handshake mr-2 w-5 text-center text-xs"></i>Recently Sold
+            </a>
+            <div class="pt-2 mt-2 border-t border-white/20">
+              <a href="tel:+16166441199" class="block py-2 px-3 text-white/90 hover:bg-white/10 rounded text-sm">
+                <i class="fas fa-phone mr-2 text-xs"></i>(616) 644-1199
+              </a>
+              <a href="mailto:brandon@wearejhr.com" class="block py-2 px-3 text-white/90 hover:bg-white/10 rounded text-sm">
+                <i class="fas fa-envelope mr-2 text-xs"></i>brandon@wearejhr.com
+              </a>
+              <div class="flex gap-4 mt-3 px-3">
+                <a href="https://www.facebook.com/BfabsRealtor/" target="_blank" class="text-white hover:text-white/80 text-xl" title="Facebook">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/brandon-j-faber-gri-a5607624/" target="_blank" class="text-white hover:text-white/80 text-xl" title="LinkedIn">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/realtor_brandonjfaber/" target="_blank" class="text-white hover:text-white/80 text-xl" title="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Desktop: Full sidebar -->
+      <div class="hidden lg:block p-6 text-center">
+        <img src="images/JH Realty logo.jpg" alt="JH Realty" class="w-56 mx-auto mb-4 rounded">
+        <img src="images/Brandon-faber-headshot.jpg" alt="Brandon Faber" class="w-40 h-40 rounded-lg mx-auto mb-4 object-cover border-4 border-white">
+
+        <h1 class="text-2xl font-bold">Brandon Faber</h1>
+        <p class="text-white font-medium">Licensed REALTOR®</p>
+        <p class="text-white text-sm mt-1">JH Realty Partners</p>
+
+        <!-- Bio -->
+        <div class="mt-6 text-left text-sm text-white leading-relaxed">
+          <p class="mb-3">
+            Your trusted West Michigan real estate professional, helping buyers, sellers, and investors achieve their real estate goals.
+          </p>
+          <p>
+            Whether you're buying your first home, selling to move up, or looking to invest, I bring dedication and personal attention to every transaction.
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="mt-6 pt-6 border-t border-white/30">
+          <h3 class="text-sm font-semibold text-white mb-3">Contact</h3>
+          <p class="text-sm text-white">
+            <a href="tel:+16166441199">(616) 644-1199</a>
+          </p>
+          <p class="text-sm text-white mt-1">
+            <a href="mailto:brandon@wearejhr.com?subject=Getting%20In%20Touch">brandon@wearejhr.com</a>
+          </p>
+          <p class="text-xs text-white/70 mt-2">
+            545 Ada Dr SE<br>Ada, MI 49301
+          </p>
+          <div class="flex gap-4 mt-8 justify-center">
+            <a href="https://www.facebook.com/BfabsRealtor/" target="_blank" class="text-white hover:text-white/80 text-2xl" title="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/brandon-j-faber-gri-a5607624/" target="_blank" class="text-white hover:text-white/80 text-2xl" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/realtor_brandonjfaber/" target="_blank" class="text-white hover:text-white/80 text-2xl" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="mt-6 pt-6 border-t border-white/30 space-y-3">
+          <a href="#buy-first" onclick="smoothScroll(event, 'buy-first')" class="flex items-center w-full bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-6 rounded-lg transition">
+            <img src="https://static.wixstatic.com/media/5d0d57_9876259c18f04938a620a0e3ff2be5e5~mv2.png/v1/fill/w_202,h_208,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_5590_PNG.png" alt="Buy First Sell Later" class="w-7 h-auto mr-2 -ml-1">Buy First, Sell Later
+          </a>
+          <a href="mailto:brandon@wearejhr.com?subject=Getting%20In%20Touch" class="flex items-center w-full bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-6 rounded-lg transition">
+            <i class="fas fa-paper-plane mr-3 w-5 text-center"></i>Get in Touch
+          </a>
+          <a href="#listings" onclick="smoothScroll(event, 'listings')" class="flex items-center w-full bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-6 rounded-lg transition">
+            <i class="fas fa-house-chimney mr-3 w-5 text-center"></i>Search for Homes
+          </a>
+          <a href="#testimonials" onclick="smoothScroll(event, 'testimonials')" class="flex items-center w-full bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-6 rounded-lg transition">
+            <i class="fas fa-comments mr-3 w-5 text-center"></i>Testimonials
+          </a>
+          <a href="#recently-sold" onclick="smoothScroll(event, 'recently-sold')" class="flex items-center w-full bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-6 rounded-lg transition">
+            <i class="fas fa-handshake mr-3 w-5 text-center"></i>Recently Sold
+          </a>
+        </div>
+
+        <p class="mt-6 text-sm text-black text-center font-medium">Powered by REFresh<br>&copy; 2026</p>
+
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+
+      <!-- Hero Banner -->
+      <section class="relative h-[240px] lg:h-[360px] bg-gray-100 overflow-hidden">
+        <img src="images/RE Banners.png" alt="Banner 1" class="banner-image active absolute inset-0 w-full h-full object-cover object-center">
+        <img src="images/RE Banners (1).png" alt="Banner 2" class="banner-image absolute inset-0 w-full h-full object-cover object-center">
+        <img src="images/RE Banners (2).png" alt="Banner 3" class="banner-image absolute inset-0 w-full h-full object-cover object-center">
+        <img src="images/RE Banners (3).png" alt="Banner 4" class="banner-image absolute inset-0 w-full h-full object-cover object-center">
+      </section>
+
+      <!-- Insights + CTA Tiles Section -->
+      <section class="pt-6 pb-8 lg:pt-8 lg:pb-12 px-4 md:px-12">
+        <div class="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto">
+
+          <!-- Left: Insights Card with teaser -->
+          <div class="lg:w-3/5">
+            <h2 id="insights" class="text-xl lg:text-2xl font-bold text-primary mb-4 lg:mb-6 text-center">Market Insights</h2>
+            <div class="bg-white rounded-lg shadow-lg p-6 lg:h-[1182px] lg:overflow-hidden lg:flex lg:flex-col">
+              <!-- Loading state -->
+              <div id="insights-loading" class="flex items-center justify-center h-32 text-gray-500">
+                <div class="text-center">
+                  <div class="inline-block w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mb-3"></div>
+                  <p class="text-sm italic">Loading insights...</p>
+                </div>
+              </div>
+              <!-- No posts placeholder -->
+              <div id="insights-placeholder" class="hidden text-center text-gray-400 py-8">
+                <p class="text-lg font-semibold mb-2">Coming Soon</p>
+                <p class="text-sm">Market updates will appear here</p>
+              </div>
+              <!-- Teaser preview -->
+              <div id="insights-teaser" class="hidden lg:flex lg:flex-col lg:h-full">
+                <article id="teaser-article" class="lg:flex-1 lg:overflow-hidden">
+                  <h3 id="teaser-title" class="text-lg font-bold text-primary mb-2"></h3>
+                  <p id="teaser-author" class="text-xs text-gray-600 mb-1"></p>
+                  <p id="teaser-date" class="text-xs text-gray-500 mb-3"></p>
+                  <div id="teaser-content" class="text-gray-700 text-sm prose line-clamp-6 lg:line-clamp-none lg:h-full lg:overflow-hidden"></div>
+                </article>
+                <button onclick="openInsightsModal()" class="mt-4 text-primary font-semibold text-sm hover:underline text-center block w-full">
+                  Read more &rarr;
+                </button>
+                <!-- Navigation between insights -->
+                <div id="insights-nav" class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center lg:mt-auto lg:flex-shrink-0">
+                  <button id="prev-insight" onclick="showPrevInsight()" class="hidden text-primary text-sm hover:underline text-left">
+                    <span class="text-gray-400">&larr;</span> Previous insight - <span id="prev-insight-title"></span>
+                  </button>
+                  <button id="next-insight" onclick="showNextInsight()" class="hidden text-primary text-sm hover:underline text-right ml-auto">
+                    Next insight - <span id="next-insight-title"></span> <span class="text-gray-400">&rarr;</span>
+                  </button>
+                </div>
+              </div>
+              <!-- Newsletter Subscribe Button -->
+              <button onclick="openNewsletterModal()" class="mt-10 w-full bg-primary hover:bg-accent text-white font-bold py-3 px-6 rounded-lg transition flex items-center justify-center gap-2">
+                <i class="fas fa-envelope"></i> Subscribe to my newsletter
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: CTA Tiles Stacked -->
+          <div id="how-can-i-help" class="lg:w-2/5">
+            <h2 class="text-xl lg:text-2xl font-bold text-primary mb-4 lg:mb-6 text-center">How can I help?</h2>
+            <div class="flex flex-col gap-3 lg:gap-4">
+              <!-- Want to Sell -->
+              <div class="cascade-tile bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition group cursor-pointer" onclick="openModal('want-to-sell')">
+                <div class="flex">
+                  <img src="images/RE-sold-sign.jpg" alt="Want to Sell" class="w-36 h-28 lg:w-48 lg:h-36 object-cover group-hover:scale-105 transition duration-300">
+                  <div class="p-3 lg:p-4 flex-1 flex items-center justify-center">
+                    <h3 class="text-lg lg:text-xl font-bold text-primary">Want to Sell?</h3>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Want to Buy -->
+              <div class="cascade-tile bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition group cursor-pointer" onclick="openModal('want-to-buy')">
+                <div class="flex">
+                  <img src="images/Home-closing.jpg" alt="Want to Buy" class="w-36 h-28 lg:w-48 lg:h-36 object-cover group-hover:scale-105 transition duration-300">
+                  <div class="p-3 lg:p-4 flex-1 flex items-center justify-center">
+                    <h3 class="text-lg lg:text-xl font-bold text-primary">Want to Buy?</h3>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Want to Invest -->
+              <div class="cascade-tile bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition group cursor-pointer" onclick="openModal('want-to-invest')">
+                <div class="flex">
+                  <img src="images/Investment-home.jpg" alt="Want to Invest" class="w-36 h-28 lg:w-48 lg:h-36 object-cover group-hover:scale-105 transition duration-300">
+                  <div class="p-3 lg:p-4 flex-1 flex items-center justify-center">
+                    <h3 class="text-lg lg:text-xl font-bold text-primary">Want to Invest?</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Featured Listing -->
+            <div id="featured-listing" class="hidden mt-8 lg:mt-20 pt-6 border-t border-gray-200">
+              <h3 class="text-xl font-bold text-primary mb-4 text-center">Featured Listing</h3>
+              <a id="featured-link" href="#" target="_blank" class="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition group">
+                <img id="featured-photo" src="" alt="Featured Listing" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                <div class="p-4">
+                  <p id="featured-price" class="text-xl font-bold text-primary"></p>
+                  <p id="featured-address" class="text-gray-700 text-sm mt-1"></p>
+                  <p id="featured-details" class="text-gray-500 text-sm mt-1"></p>
+                  <p id="featured-agent" class="text-gray-400 text-xs mt-2 italic"></p>
+                </div>
+              </a>
+              <button onclick="openModal('lets-go-look')" class="w-full mt-3 bg-primary hover:bg-accent text-white font-bold py-3 px-6 rounded-lg transition">
+                Let's Go Look!
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Row 1 -->
+      <section id="testimonials" class="py-6 lg:py-12 px-6 md:px-12 bg-white">
+        <h2 class="text-xl lg:text-2xl font-bold text-primary mb-4 text-center">The reviews are in...</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          <div class="bg-gray-50 rounded-lg p-4 lg:p-6">
+            <p class="text-gray-700 italic text-sm lg:text-base">"Brandon provided nothing less than superb service! He was extremely patient with my family and I during the sale of our old house and purchase of our new home and helped us understand all the details along the way. He truly looks out for his clients best interests."</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4 lg:p-6">
+            <p class="text-gray-700 italic text-sm lg:text-base">"Brandon LISTENED to me, and then guided me in a very professional manner. His communication skills are one of his strongest points, as he called me regularly with updates. When he disagreed with me, he told me why, and gave data to back his suggestions."</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Buy First Sell Later -->
+      <section id="buy-first" class="relative py-10 px-6 md:px-12 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=80');">
+        <div class="absolute inset-0 bg-white/80"></div>
+        <div class="relative max-w-3xl mx-auto text-center">
+          <img src="https://static.wixstatic.com/media/5d0d57_9876259c18f04938a620a0e3ff2be5e5~mv2.png/v1/fill/w_202,h_208,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_5590_PNG.png" alt="Buy First Sell Later" class="w-40 h-auto mx-auto mb-3">
+          <div class="inline-block bg-[#8fad6b] px-6 py-2 mb-4">
+            <h2 class="text-2xl md:text-3xl font-serif text-white tracking-wide">BUY FIRST SELL LATER</h2>
+          </div>
+          <p class="text-gray-700 italic mb-6 max-w-2xl mx-auto">Can't qualify to buy a new home before selling your current one? No Problem. JH Realty has a solution that works - when others can't.</p>
+
+          <!-- How It Works -->
+          <div class="max-w-3xl mx-auto mb-8">
+            <h4 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8">How It Works</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div>
+                <span class="inline-flex w-16 h-16 bg-[#8fad6b] text-white rounded-full items-center justify-center font-bold text-3xl mb-4">1</span>
+                <p class="text-xl font-bold text-gray-800 mb-2">Get pre-approved</p>
+                <p class="text-sm text-gray-600">Shop with confidence before you list your current home</p>
+              </div>
+              <div>
+                <span class="inline-flex w-16 h-16 bg-[#8fad6b] text-white rounded-full items-center justify-center font-bold text-3xl mb-4">2</span>
+                <p class="text-xl font-bold text-gray-800 mb-2">Buy your next home</p>
+                <p class="text-sm text-gray-600">Make a strong, non-contingent offer, move in, and then sell your current home when the time is right</p>
+              </div>
+              <div>
+                <span class="inline-flex w-16 h-16 bg-[#8fad6b] text-white rounded-full items-center justify-center font-bold text-3xl mb-4">3</span>
+                <p class="text-xl font-bold text-gray-800 mb-2">Sell when you're ready</p>
+                <p class="text-sm text-gray-600">Skip the stress and sell your previous home with peace of mind</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://www.buyfirstselllater.com/_files/ugd/5d0d57_cd93176397594694aed45a484d298ae8.pdf" target="_blank" class="bg-[#8fad6b] hover:bg-[#7a9a5a] text-white font-bold py-3 rounded transition text-lg text-center sm:w-52">
+              Get a FREE Guide!
+            </a>
+            <a href="mailto:brandon@wearejhr.com?subject=Tell%20Me%20About%20The%20Buy%20First%2C%20Sell%20Later%20Program" class="bg-[#8fad6b] hover:bg-[#7a9a5a] text-white font-bold py-3 rounded transition text-lg text-center sm:w-52">
+              Email Me
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search for Homes -->
+      <section id="listings" class="py-12 px-6 md:px-12 bg-gray-100">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-2xl font-bold text-primary mb-8 text-center">Search for Homes</h2>
+          <a href="http://www.michric.org/residential/" target="_blank" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition max-w-md mx-auto">
+            <img src="images/Michric-search.png" alt="Search MichRIC" class="w-full">
+            <div class="p-4 text-center">
+              <p class="text-primary font-semibold">Search MLS Listings</p>
+              <p class="text-gray-500 text-sm mt-1">Click to browse available homes</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Testimonials Row 2 -->
+      <section class="py-6 lg:py-12 px-6 md:px-12 bg-white">
+        <h2 class="text-xl lg:text-2xl font-bold text-primary mb-4 text-center">And more...</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 max-w-4xl mx-auto">
+          <div class="bg-gray-50 rounded-lg p-4 lg:p-6">
+            <p class="text-gray-700 italic text-sm lg:text-base">"Brandon was great in helping us with our first home buying experience. He was very responsive and did a great job at getting us into the listings that we wanted to see. He made things work on our schedule and was a great help through the entire process."</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4 lg:p-6">
+            <p class="text-gray-700 italic text-sm lg:text-base">"I was a first time home buyer with little knowledge of the home buying process. Brandon was incredibly helpful; he walked me through everything and ensured I felt comfortable. He was responsive and made good suggestions based on my housing preferences."</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recently Sold -->
+      <section id="recently-sold" class="py-12 px-6 md:px-12 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-2xl font-bold text-primary mb-8 text-center">Recently Sold</h2>
+          <p class="text-center text-gray-500">Coming soon...</p>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-12 px-6 md:px-12 bg-primary text-white">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="text-2xl font-bold mb-4">Ready to Get Started?</h2>
+          <p class="text-gray-200 mb-8">Whether you're buying, selling, or just have questions, I'm here to help.</p>
+          <a href="mailto:brandon@wearejhr.com?subject=Let's%20Talk%20Real%20Estate" class="inline-block bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-lg transition">
+            Contact Me
+          </a>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-gray-400 py-8 px-6">
+        <div class="max-w-6xl mx-auto text-center text-sm">
+          <p class="font-semibold text-gray-300">Brandon Faber | JH Realty Partners</p>
+          <p class="mt-2">545 Ada Dr SE, Ada, MI 49301</p>
+          <p class="mt-1">
+            <a href="tel:+16166441199" class="hover:text-white">(616) 644-1199</a> |
+            <a href="mailto:brandon@wearejhr.com" class="hover:text-white">brandon@wearejhr.com</a>
+          </p>
+          <p class="mt-2">Licensed REALTOR® in the State of Michigan | License #6502378711</p>
+          <p class="mt-3 text-xs text-gray-500">&copy; 2026 Brandon Faber. All rights reserved.</p>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Inquiry Modal -->
+  <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-4 lg:pl-80">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modal-title" class="text-xl font-bold text-primary">Get in Touch</h3>
+          <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+        </div>
+
+        <p id="modal-description" class="text-gray-600 text-sm mb-6 hidden"></p>
+
+        <!-- Success State -->
+        <div id="form-success" class="hidden text-center py-8">
+          <div class="text-5xl mb-4">&#10003;</div>
+          <h4 class="text-xl font-bold text-primary mb-2">Message Sent!</h4>
+          <p class="text-gray-600 mb-2">Thanks for reaching out. I'll get back to you soon.</p>
+          <p class="text-gray-600 mb-6 italic">- Brandon Faber</p>
+          <button onclick="closeModal()" class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-6 rounded-lg transition">
+            Close
+          </button>
+        </div>
+
+        <form id="inquiry-form" onsubmit="submitForm(event)">
+          <input type="hidden" id="inquiry-type" name="inquiry_type" value="">
+
+          <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                <input type="text" name="first_name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                <input type="text" name="last_name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+              <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+              <input type="tel" name="phone" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <textarea name="message" rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Tell me a bit about your situation..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" id="submit-btn" class="w-full mt-6 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition">
+            Send Message
+          </button>
+
+          <p id="form-status" class="mt-4 text-center text-sm hidden"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insights Modal -->
+  <div id="insights-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-4 lg:pl-80">
+    <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-bold text-primary">Market Insights</h3>
+          <button onclick="closeInsightsModal()" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+        </div>
+        <div id="insights-modal-content" class="space-y-8">
+          <!-- Posts will be rendered here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter Modal -->
+  <div id="newsletter-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-4 lg:pl-80">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold text-primary">Subscribe to My Newsletter</h3>
+          <button onclick="closeNewsletterModal()" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+        </div>
+
+        <!-- Success State -->
+        <div id="newsletter-success" class="hidden text-center py-8">
+          <div class="text-5xl mb-4">&#10003;</div>
+          <h4 class="text-xl font-bold text-primary mb-2">You're Subscribed!</h4>
+          <p class="text-gray-600 mb-6 italic">- Brandon Faber</p>
+          <button onclick="closeNewsletterModal()" class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-6 rounded-lg transition">
+            Close
+          </button>
+        </div>
+
+        <form id="newsletter-form" onsubmit="submitNewsletterForm(event)">
+          <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                <input type="text" name="first_name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                <input type="text" name="last_name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+              <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+              <input type="tel" name="phone" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+              <input type="text" name="address" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="street, city, state, zip code">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+              <textarea name="notes" rows="2" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="particular interests you'd like me to feature"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" id="newsletter-submit-btn" class="w-full mt-6 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition">
+            Sign me up Brandon!
+          </button>
+
+          <p id="newsletter-status" class="mt-4 text-center text-sm hidden"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Google Apps Script URL for forms and blog
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec';
+
+    // Modal handling
+    const modalTitles = {
+      'want-to-sell': 'Thinking About Selling?',
+      'want-to-buy': 'Interested in Buying?',
+      'want-to-invest': 'Investment Inquiry',
+      'lets-go-look': 'Let\'s Go Look!',
+      'buyfirst': 'Buy First, Sell Later',
+      'general': 'Get in Touch'
+    };
+
+    const modalDescriptions = {
+      'want-to-sell': 'I can provide you with an in-depth analysis of the market to reach the most optimal listing price, as well as tips to help get your home ready to sell.',
+      'want-to-buy': 'I help buyers craft meaningful offers to successfully get the home they want. I work tirelessly through inspections, through closing and post-close follow ups.',
+      'want-to-invest': 'I can help you find the right investment opportunities, whether it\'s for short or long-term rentals, and help get you set up with property management.',
+      'lets-go-look': 'Interested in seeing this property? Fill out the form below and I\'ll reach out to schedule a showing.',
+      'buyfirst': 'Move into your new home before selling your current one. No need for temporary housing or contingent offers. Let me show you how the Buy First, Sell Later program works.'
+    };
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        menu.classList.add('hidden');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      menu.classList.add('hidden');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+
+    function openModal(type) {
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('modal').classList.add('flex');
+      document.getElementById('modal-title').textContent = modalTitles[type] || 'Get in Touch';
+
+      const descEl = document.getElementById('modal-description');
+      if (modalDescriptions[type]) {
+        descEl.textContent = modalDescriptions[type];
+        descEl.classList.remove('hidden');
+      } else {
+        descEl.classList.add('hidden');
+      }
+      document.getElementById('inquiry-type').value = type;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+      document.getElementById('modal').classList.remove('flex');
+      document.body.style.overflow = '';
+      document.getElementById('inquiry-form').reset();
+      document.getElementById('inquiry-form').classList.remove('hidden');
+      document.getElementById('form-success').classList.add('hidden');
+      document.getElementById('form-status').classList.add('hidden');
+      document.getElementById('modal-description').classList.add('hidden');
+    }
+
+    // Close modal on background click
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Form submission
+    async function submitForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = document.getElementById('submit-btn');
+      const status = document.getElementById('form-status');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const formData = {
+        timestamp: new Date().toISOString(),
+        first_name: form.first_name.value,
+        last_name: form.last_name.value,
+        email: form.email.value,
+        phone: form.phone.value || '',
+        inquiry_type: form.inquiry_type.value,
+        message: form.message.value || '',
+        type: 'brandon_inquiry'
+      };
+
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        // Show success state
+        document.getElementById('inquiry-form').classList.add('hidden');
+        document.getElementById('modal-description').classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+        form.reset();
+      } catch (error) {
+        status.textContent = 'Something went wrong. Please try again or call me directly.';
+        status.classList.remove('hidden', 'text-green-600');
+        status.classList.add('text-red-600');
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+
+    // Banner rotation
+    const banners = document.querySelectorAll('.banner-image');
+
+    // Start with a random banner on page load
+    let currentBanner = Math.floor(Math.random() * banners.length);
+    banners.forEach(b => b.classList.remove('active'));
+    banners[currentBanner].classList.add('active');
+
+    function rotateBanners() {
+      banners[currentBanner].classList.remove('active');
+      currentBanner = (currentBanner + 1) % banners.length;
+      banners[currentBanner].classList.add('active');
+    }
+
+    setInterval(rotateBanners, 3000);
+
+    // Load blog posts from Google Sheets with caching
+    async function loadBlogPosts() {
+      const loading = document.getElementById('insights-loading');
+      const placeholder = document.getElementById('insights-placeholder');
+
+      // Check for cached posts first
+      const cached = localStorage.getItem('brandonBlogPostsCache');
+      if (cached) {
+        try {
+          const cachedData = JSON.parse(cached);
+          renderPosts(cachedData.posts);
+          loading.classList.add('hidden');
+        } catch (e) {
+          // Invalid cache, ignore
+        }
+      }
+
+      // Fetch fresh data
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL + '?type=brandon_blog');
+        const posts = await response.json();
+
+        // Cache the posts
+        localStorage.setItem('brandonBlogPostsCache', JSON.stringify({
+          posts: posts,
+          timestamp: Date.now()
+        }));
+
+        loading.classList.add('hidden');
+        renderPosts(posts);
+      } catch (error) {
+        console.error('Error loading blog posts:', error);
+        loading.classList.add('hidden');
+        if (!cached) {
+          placeholder.classList.remove('hidden');
+        }
+      }
+    }
+
+    // Store posts globally for modal and navigation
+    let allBlogPosts = [];
+    let currentInsightIndex = 0;
+    const MAX_INSIGHTS = 4;
+
+    // Auto-link plain URLs in text
+    function autoLinkUrls(html) {
+      const tags = [];
+      html = html.replace(/<[^>]+>/gi, (match) => {
+        tags.push(match);
+        return `<PROTECTED_${tags.length - 1}>`;
+      });
+
+      const urlPattern = /(https?:\/\/[^\s<>"']+)/gi;
+      html = html.replace(urlPattern, '<a href="$1" target="_blank" class="text-primary hover:underline">$1</a>');
+
+      html = html.replace(/<PROTECTED_(\d+)>/g, (match, index) => tags[parseInt(index)]);
+      html = html.replace(/<a\s+/gi, '<a target="_blank" class="text-primary hover:underline" ');
+
+      return html;
+    }
+
+    function renderPosts(posts) {
+      const placeholder = document.getElementById('insights-placeholder');
+      const teaser = document.getElementById('insights-teaser');
+
+      posts.forEach(post => {
+        const orderMatch = (post.content || '').match(/<!--ORDER:(\d+)-->/);
+        if (orderMatch) {
+          post.order = parseInt(orderMatch[1], 10);
+          post.content = post.content.replace(/<!--ORDER:\d+-->/g, '');
+        }
+      });
+
+      posts.sort((a, b) => {
+        if (a.order !== undefined && b.order !== undefined) {
+          return a.order - b.order;
+        }
+        return new Date(b.date) - new Date(a.date);
+      });
+
+      allBlogPosts = posts.slice(0, MAX_INSIGHTS);
+      currentInsightIndex = 0;
+
+      if (allBlogPosts.length === 0) {
+        placeholder.classList.remove('hidden');
+        teaser.classList.add('hidden');
+        return;
+      }
+
+      placeholder.classList.add('hidden');
+      teaser.classList.remove('hidden');
+
+      showInsight(0);
+    }
+
+    function showInsight(index) {
+      if (index < 0 || index >= allBlogPosts.length) return;
+
+      currentInsightIndex = index;
+      const post = allBlogPosts[index];
+      const postContent = post.content || post.image || '';
+
+      document.getElementById('teaser-title').textContent = post.title;
+
+      const authorEl = document.getElementById('teaser-author');
+      if (post.author) {
+        authorEl.textContent = 'By ' + post.author;
+        authorEl.style.display = 'block';
+      } else {
+        authorEl.style.display = 'none';
+      }
+
+      document.getElementById('teaser-date').textContent = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('teaser-content').innerHTML = autoLinkUrls(postContent);
+
+      updateInsightNav();
+    }
+
+    function updateInsightNav() {
+      const prevBtn = document.getElementById('prev-insight');
+      const nextBtn = document.getElementById('next-insight');
+      const prevTitle = document.getElementById('prev-insight-title');
+      const nextTitle = document.getElementById('next-insight-title');
+
+      if (currentInsightIndex < allBlogPosts.length - 1) {
+        const prevPost = allBlogPosts[currentInsightIndex + 1];
+        prevTitle.textContent = prevPost.title;
+        prevBtn.classList.remove('hidden');
+      } else {
+        prevBtn.classList.add('hidden');
+      }
+
+      if (currentInsightIndex > 0) {
+        const nextPost = allBlogPosts[currentInsightIndex - 1];
+        nextTitle.textContent = nextPost.title;
+        nextBtn.classList.remove('hidden');
+      } else {
+        nextBtn.classList.add('hidden');
+      }
+    }
+
+    function showPrevInsight() {
+      showInsight(currentInsightIndex + 1);
+    }
+
+    function showNextInsight() {
+      showInsight(currentInsightIndex - 1);
+    }
+
+    // Insights modal functions
+    function openInsightsModal() {
+      if (allBlogPosts.length === 0) return;
+
+      const modal = document.getElementById('insights-modal');
+      const content = document.getElementById('insights-modal-content');
+
+      const currentPost = allBlogPosts[currentInsightIndex];
+      const postContent = currentPost.content || currentPost.image || '';
+
+      const authorHtml = currentPost.author ? `<p class="text-xs text-gray-600 mb-1">By ${currentPost.author}</p>` : '';
+
+      content.innerHTML = `
+        <article>
+          <h3 class="text-lg font-bold text-primary mb-1">${currentPost.title}</h3>
+          ${authorHtml}
+          <p class="text-xs text-gray-500 mb-3">${new Date(currentPost.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          <div class="text-gray-700 text-sm prose">${autoLinkUrls(postContent)}</div>
+        </article>
+      `;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeInsightsModal() {
+      const modal = document.getElementById('insights-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('insights-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeInsightsModal();
+    });
+
+    // Newsletter modal functions
+    function openNewsletterModal() {
+      document.getElementById('newsletter-modal').classList.remove('hidden');
+      document.getElementById('newsletter-modal').classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeNewsletterModal() {
+      document.getElementById('newsletter-modal').classList.add('hidden');
+      document.getElementById('newsletter-modal').classList.remove('flex');
+      document.body.style.overflow = '';
+      document.getElementById('newsletter-form').reset();
+      document.getElementById('newsletter-form').classList.remove('hidden');
+      document.getElementById('newsletter-success').classList.add('hidden');
+      document.getElementById('newsletter-status').classList.add('hidden');
+    }
+
+    document.getElementById('newsletter-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeNewsletterModal();
+    });
+
+    async function submitNewsletterForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = document.getElementById('newsletter-submit-btn');
+      const status = document.getElementById('newsletter-status');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Signing up...';
+
+      const formData = {
+        timestamp: new Date().toISOString(),
+        first_name: form.first_name.value,
+        last_name: form.last_name.value,
+        email: form.email.value,
+        phone: form.phone.value || '',
+        address: form.address.value || '',
+        inquiry_type: 'newsletter',
+        message: form.notes.value || '',
+        type: 'brandon_newsletter'
+      };
+
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        document.getElementById('newsletter-form').classList.add('hidden');
+        document.getElementById('newsletter-success').classList.remove('hidden');
+        form.reset();
+      } catch (error) {
+        status.textContent = 'Something went wrong. Please try again.';
+        status.classList.remove('hidden', 'text-green-600');
+        status.classList.add('text-red-600');
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Sign me up Brandon!';
+    }
+
+    // Load featured listing
+    async function loadFeaturedListing() {
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL + '?type=brandon_listing');
+        const data = await response.json();
+
+        if (data && data.photo) {
+          document.getElementById('featured-photo').src = data.photo;
+          let priceDisplay = data.price;
+          if (priceDisplay && !String(priceDisplay).includes('$')) {
+            priceDisplay = '$' + Number(priceDisplay).toLocaleString();
+          }
+          document.getElementById('featured-price').textContent = priceDisplay;
+          document.getElementById('featured-address').textContent = data.address;
+
+          const details = [];
+          if (data.beds) details.push(data.beds + ' bed');
+          if (data.baths) details.push(data.baths + ' bath');
+          if (data.sqft) details.push(data.sqft + ' sqft');
+          document.getElementById('featured-details').textContent = details.join(' • ');
+
+          if (data.agent) {
+            document.getElementById('featured-agent').textContent = 'Listed by ' + data.agent;
+          }
+
+          if (data.mls) {
+            document.getElementById('featured-link').href = data.mls;
+          } else {
+            document.getElementById('featured-link').removeAttribute('href');
+            document.getElementById('featured-link').style.cursor = 'default';
+          }
+
+          const listingEl = document.getElementById('featured-listing');
+          listingEl.classList.remove('hidden');
+          listingEl.classList.add('animate-fade-slide');
+        }
+      } catch (error) {
+        console.error('Error loading featured listing:', error);
+      }
+    }
+
+    // Smooth scroll with custom duration
+    function smoothScroll(e, targetId) {
+      e.preventDefault();
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      const startPosition = window.pageYOffset;
+      const targetPosition = target.getBoundingClientRect().top + startPosition;
+      const distance = targetPosition - startPosition;
+      const duration = 1200;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        window.scrollTo(0, startPosition + distance * ease);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    // Load posts and featured listing on page load
+    loadBlogPosts();
+    loadFeaturedListing();
+  </script>
+</body>
+</html>
